@@ -1,2 +1,3 @@
 classpath*:com/ibm/au/research/nlp/types/**/*.xml
 classpath*:org/cleartk/TypeSystem.xml
+classpath*:readbiomed/document/**/*.xml

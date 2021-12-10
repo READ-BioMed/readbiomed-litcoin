@@ -37,6 +37,7 @@
 						<configuration>
 							<typeSystemIncludes>
 								<typeSystemInclude>resources/com/ibm/au/research/nlp/types/TypeSystem.xml</typeSystemInclude>
+								<typeSystemInclude>resources/readbiomed/document/TypeSystem.xml</typeSystemInclude>
 							</typeSystemIncludes>
 							<typeSystemExcludes>
 							</typeSystemExcludes>
