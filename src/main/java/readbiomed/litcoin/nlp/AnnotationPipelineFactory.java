@@ -11,6 +11,7 @@ import com.ibm.au.research.nlp.ner.mutation.nlp.ner.WDDMutationRegExAnnotator;
 
 import readbiomed.litcoin.consumer.JCas2LitCoin;
 import readbiomed.litcoin.nlp.entities.celllines.CellLineAnnotator;
+import readbiomed.litcoin.nlp.entities.chemicals.ChemicalAnnotator;
 import readbiomed.litcoin.nlp.entities.diseases.DiseaseAnnotator;
 import readbiomed.litcoin.nlp.entities.genes.GeneAnnotator;
 import readbiomed.litcoin.nlp.entities.organisms.NCBITaxonomyAnnotator;
@@ -32,6 +33,8 @@ public class AnnotationPipelineFactory {
 		builder.add(DiseaseAnnotator.getDescription());
 		
 		builder.add(CellLineAnnotator.getDescription());
+		
+		builder.add(ChemicalAnnotator.getDescription());
 		
 		builder.add(WDDMutationRegExAnnotator.getDescription());
 		
