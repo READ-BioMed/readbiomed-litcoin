@@ -14,7 +14,9 @@ import readbiomed.litcoin.nlp.entities.celllines.CellLineAnnotator;
 import readbiomed.litcoin.nlp.entities.chemicals.ChemicalAnnotator;
 import readbiomed.litcoin.nlp.entities.diseases.DiseaseAnnotator;
 import readbiomed.litcoin.nlp.entities.genes.GeneAnnotator;
+import readbiomed.litcoin.nlp.entities.mutations.MutationFiltering;
 import readbiomed.litcoin.nlp.entities.organisms.NCBITaxonomyAnnotator;
+import readbiomed.litcoin.nlp.entities.utils.FilterRepeatedEntity;
 import readbiomed.nlp.dictionary.ConceptMapperFactory;
 
 public class AnnotationPipelineFactory {
@@ -37,6 +39,10 @@ public class AnnotationPipelineFactory {
 		builder.add(ChemicalAnnotator.getDescription());
 		
 		builder.add(WDDMutationRegExAnnotator.getDescription());
+		
+		builder.add(MutationFiltering.getDescription());
+		
+		builder.add(FilterRepeatedEntity.getDescription());
 		
 		// Relation annotation
 

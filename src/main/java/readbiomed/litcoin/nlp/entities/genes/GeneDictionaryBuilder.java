@@ -25,7 +25,8 @@ public class GeneDictionaryBuilder implements Callable<Integer> {
 	private static final Pattern p_pipe = Pattern.compile("\\|");
 
 	private static void addTerm(String term, Set<String> terms, Set<String> stopwords) {
-		if (!stopwords.contains(term.toLowerCase())) {
+		term = term.replaceAll("'", "").toLowerCase();
+		if (!stopwords.contains(term)) {
 			terms.add(term);
 		}
 	}
@@ -34,10 +35,44 @@ public class GeneDictionaryBuilder implements Callable<Integer> {
 	private String inputFileName;
 	@Parameters(index = "1", description = "Output file name.")
 	private String outputFileName;
-	
+
 	public static void main(String[] argc) throws IOException {
 		int exitCode = new CommandLine(new GeneDictionaryBuilder()).execute(argc);
 		System.exit(exitCode);
+	}
+
+	private boolean checkNumber(String term) {
+		try {
+			Double.parseDouble(term);
+
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
+	}
+
+	private boolean checkTerm(String term) {
+		if (term.contains("[") || term.contains("]")) {
+			return false;
+		}
+
+		term = term.replaceAll("'", "");
+
+		// Remove short terms
+		if (term.length() < 3) {
+			return false;
+		}
+
+		// Remove numbers
+		if (checkNumber(term)) {
+			return false;
+		}
+
+		if (term.charAt(0) >= '0' && term.charAt(0) <= '9') {
+			return false;
+		}
+
+		return true;
 	}
 
 	@Override
@@ -73,7 +108,7 @@ public class GeneDictionaryBuilder implements Callable<Integer> {
 
 				// Remove header
 				b.readLine();
-				
+
 				while ((line = b.readLine()) != null) {
 					String[] token = p_tab.split(line);
 
@@ -85,14 +120,17 @@ public class GeneDictionaryBuilder implements Callable<Integer> {
 							// addTerm(token[2], set, stopwords);
 
 							for (String synonym : p_pipe.split(token[4])) {
-								if (synonym.length() > 1)
+								if (checkTerm(synonym))
 									addTerm(synonym, set, stopwords);
 							}
 
-							if (token[10].length() > 1)
+							if (checkTerm(token[10])) {
 								addTerm(token[10], set, stopwords);
-							if (token[11].length() > 1)
+							}
+
+							if (checkTerm(token[11])) {
 								addTerm(token[11], set, stopwords);
+							}
 
 							if (set.size() > 0) {
 								w.write("<token id=\"gene-" + StringEscapeUtils.escapeXml(token[1]) + "\">");
