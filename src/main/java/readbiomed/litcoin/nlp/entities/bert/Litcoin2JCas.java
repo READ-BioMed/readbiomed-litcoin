@@ -64,6 +64,12 @@ public class Litcoin2JCas extends JCasAnnotator_ImplBase {
 				ne.setEnd(Integer.parseInt(tokens[3]));
 				ne.setMentionType(tokens[4]);
 				ne.addToIndexes();
+
+				if (!jCas.getDocumentText().substring(ne.getBegin(), ne.getEnd()).equals(tokens[5])) {
+					System.err.println(pmid + "|" + ne.getCoveredText() + "|" + tokens[5]);
+					System.err.println(ne);
+				}
+
 			});
 	}
 

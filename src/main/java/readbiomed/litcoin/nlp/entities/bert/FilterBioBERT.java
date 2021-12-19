@@ -29,7 +29,8 @@ public class FilterBioBERT extends JCasAnnotator_ImplBase {
 			return false;
 		}
 
-		if (term.startsWith(":") || term.startsWith("\"") || term.startsWith("/")) {
+		if ((term.startsWith(":") || term.startsWith("\"") || term.startsWith("/"))
+				|| (term.endsWith(":") || term.endsWith("\"") || term.endsWith("/"))) {
 			return false;
 		}
 
@@ -42,6 +43,7 @@ public class FilterBioBERT extends JCasAnnotator_ImplBase {
 
 		JCasUtil.select(jCas, NamedEntityMention.class).stream().forEach(e -> {
 			if ((e.getCoveredText().contains("(") && !e.getCoveredText().contains(")"))
+					|| (e.getCoveredText().contains(")") && !e.getCoveredText().contains("("))
 					|| !checkTerm(e.getCoveredText().toLowerCase())
 					|| (e.getCoveredText().startsWith("-") && !e.getMentionType().startsWith("Sequence"))) {
 				removeNEM.add(e);

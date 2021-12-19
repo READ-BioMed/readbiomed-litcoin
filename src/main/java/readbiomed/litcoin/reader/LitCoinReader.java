@@ -24,14 +24,12 @@ public class LitCoinReader extends JCasCollectionReader_ImplBase {
 
 	public static final String PARAM_FILE_NAME = "fileName";
 
-	public String fileName = null;
-
 	private ArrayDeque<String> documents = new ArrayDeque<>();
 
 	private static Pattern p = Pattern.compile("\t");
 
 	public void initialize(UimaContext context) throws ResourceInitializationException {
-		fileName = (String) context.getConfigParameterValue(PARAM_FILE_NAME);
+		String fileName = (String) context.getConfigParameterValue(PARAM_FILE_NAME);
 
 		try (BufferedReader b = new BufferedReader(new FileReader(fileName))) {
 			// Remove first line
@@ -68,7 +66,9 @@ public class LitCoinReader extends JCasCollectionReader_ImplBase {
 			e1.printStackTrace();
 		}
 
-		String text = tokens[1] + " " + tokens[2];
+		// Clean text from double quotes		
+		String text = tokens[1].replaceAll("^\"", "").replaceAll("\"$", "").replaceAll("\"\"", "\"") + " " + tokens[2].replaceAll("^\"", "").replaceAll("\"$", "").replaceAll("\"\"", "\"");
+
 		jCas.setDocumentText(text);
 		
 		Section title = new Section(jCas);

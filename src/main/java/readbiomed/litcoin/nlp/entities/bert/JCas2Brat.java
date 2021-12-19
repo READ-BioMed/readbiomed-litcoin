@@ -42,7 +42,11 @@ public class JCas2Brat extends JCasAnnotator_ImplBase {
 		int event_id = 1;
 
 		// Text file
-		File textFile = new File(output_folder_name, ViewUriUtil.getURI(jCas) + ".txt");
+		String [] tokens = ViewUriUtil.getURI(jCas).toString().split("/");
+		String file = tokens[tokens.length-1];
+		File textFile = new File(output_folder_name, file);
+		
+		//File textFile = new File(output_folder_name, ViewUriUtil.getURI(jCas) + ".txt");
 
 		try (BufferedWriter w = new BufferedWriter(new FileWriter(textFile))) {
 			w.write(jCas.getDocumentText());

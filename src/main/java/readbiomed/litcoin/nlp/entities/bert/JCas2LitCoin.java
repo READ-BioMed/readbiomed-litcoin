@@ -66,8 +66,8 @@ public class JCas2LitCoin extends JCasAnnotator_ImplBase {
 				w.write("\t");
 				w.write(getTypeMapping(ne.getMentionType()));
 				
-				//w.write("\t");
-				//w.write(ne.getCoveredText());
+				w.write("\t");
+				w.write(ne.getCoveredText());
 
 				w.write("\n");
 
