@@ -28,7 +28,7 @@ public class DictionaryBuilder implements Callable<Integer> {
                 // get id
                 String entityType = splitLine[1];
                 String index = splitLine[2];
-                String id = entityType + "-" + index;
+                String id = entityType.toLowerCase() + "-" + index;
 
                 // get names
                 String names = splitLine[3];
