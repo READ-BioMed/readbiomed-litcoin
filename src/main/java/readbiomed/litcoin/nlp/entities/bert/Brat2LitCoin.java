@@ -25,10 +25,10 @@ public class Brat2LitCoin {
 		builder.add(UriToDocumentTextAnnotator.getDescription());
 		builder.add(BratGroundTruthReader.getDescription());
 		
-		//builder.add(SentenceAnnotator.getDescription());
-		//builder.add(TokenAnnotator.getDescription());
+		builder.add(SentenceAnnotator.getDescription());
+		builder.add(TokenAnnotator.getDescription());
 		//builder.add(PrefixIdentification.getDescription());
-		//builder.add(AbbreviationIdentification.getDescription());
+		builder.add(AbbreviationIdentification.getDescription());
 		builder.add(FilterNestedEntities.getDescription());
 
 		builder.add(FilterBioBERT.getDescription());
