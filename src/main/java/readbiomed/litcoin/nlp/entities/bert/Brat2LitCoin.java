@@ -16,7 +16,6 @@ import com.ibm.au.research.nlp.brat.BratGroundTruthReader;
 import com.ibm.au.research.nlp.util.TextFileFilter;
 
 import readbiomed.litcoin.nlp.entities.bert.post.AbbreviationIdentification;
-import readbiomed.litcoin.nlp.entities.bert.post.PrefixIdentification;
 
 public class Brat2LitCoin {
 
