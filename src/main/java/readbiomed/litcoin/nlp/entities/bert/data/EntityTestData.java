@@ -1,4 +1,4 @@
-package readbiomed.litcoin.nlp.entities.bert;
+package readbiomed.litcoin.nlp.entities.bert.data;
 
 import java.io.IOException;
 
@@ -10,16 +10,17 @@ import org.apache.uima.fit.factory.AnalysisEngineFactory;
 import org.apache.uima.fit.factory.JCasFactory;
 import org.apache.uima.jcas.JCas;
 
+import readbiomed.litcoin.nlp.entities.bert.JCas2Brat;
 import readbiomed.litcoin.reader.LitCoinReader;
 
-public class EntityTrainingData {
+public class EntityTestData {
 
 	public static void main(String[] argc) throws IOException, UIMAException {
-		String inputFileName = "/Users/ajimeno/Downloads/LitCoin Dataset/abstracts_train.csv";
+		String inputFileName = "/Users/ajimeno/Downloads/LitCoin Dataset/abstracts_test.csv";
 
 		AggregateBuilder builder = new AggregateBuilder();
-		builder.add(Litcoin2JCas.getInputFileDescription("/Users/ajimeno/Downloads/LitCoin Dataset/entities_train.csv"));
-		builder.add(JCas2Brat.getOutputFolderDescription("/Users/ajimeno/Documents/UoM/LitCoin/training/entities"));
+		//builder.add(Litcoin2JCas.getInputFileDescription("/Users/ajimeno/Downloads/LitCoin Dataset/entities_train.csv"));
+		builder.add(JCas2Brat.getOutputFolderDescription("/Users/ajimeno/Documents/UoM/LitCoin/testing/entities"));
 		
 		AnalysisEngine ae = AnalysisEngineFactory.createEngine(builder.createAggregateDescription());
 

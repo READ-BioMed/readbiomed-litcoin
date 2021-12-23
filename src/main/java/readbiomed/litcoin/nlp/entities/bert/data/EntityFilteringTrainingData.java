@@ -1,4 +1,4 @@
-package readbiomed.litcoin.nlp.entities.bert;
+package readbiomed.litcoin.nlp.entities.bert.data;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -18,6 +18,7 @@ import org.cleartk.opennlp.tools.SentenceAnnotator;
 import org.cleartk.token.type.Sentence;
 import org.cleartk.util.ViewUriUtil;
 
+import readbiomed.litcoin.nlp.entities.bert.Litcoin2JCas;
 import readbiomed.litcoin.reader.LitCoinReader;
 
 public class EntityFilteringTrainingData {
