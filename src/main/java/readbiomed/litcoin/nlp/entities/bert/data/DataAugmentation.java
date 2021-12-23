@@ -1,4 +1,4 @@
-package readbiomed.litcoin.nlp.entities.bert;
+package readbiomed.litcoin.nlp.entities.bert.data;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

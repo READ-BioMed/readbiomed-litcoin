@@ -34,6 +34,10 @@ public class FilterBioBERT extends JCasAnnotator_ImplBase {
 			return false;
 		}
 
+		if (term.toLowerCase().equals("overload")) {
+			return false;
+		}
+
 		return !checkNumber(term);
 	}
 
