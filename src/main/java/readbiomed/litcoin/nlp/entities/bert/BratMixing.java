@@ -42,9 +42,9 @@ public class BratMixing {
 				"/Users/ajimeno/Documents/git/brat/data/entities-large-targeted");
 
 		AggregateBuilder builder = new AggregateBuilder();
-		builder.add(Litcoin2JCas.getInputFileDescription(
+		builder.add(LitCoin2JCas.getInputFileDescription(
 				"/Users/ajimeno/Documents/git/brat/data/entities-large/submission_readbiomed_entities.csv"));
-		builder.add(Litcoin2JCas.getInputFileDescription(
+		builder.add(LitCoin2JCas.getInputFileDescription(
 				"/Users/ajimeno/Documents/git/brat/data/entities-large-targeted/submission_readbiomed_entities.csv"));
 
 		builder.add(FilterNestedEntities.getDescription());

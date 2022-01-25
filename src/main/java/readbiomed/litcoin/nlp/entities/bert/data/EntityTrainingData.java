@@ -11,7 +11,7 @@ import org.apache.uima.fit.factory.JCasFactory;
 import org.apache.uima.jcas.JCas;
 
 import readbiomed.litcoin.nlp.entities.bert.JCas2Brat;
-import readbiomed.litcoin.nlp.entities.bert.Litcoin2JCas;
+import readbiomed.litcoin.nlp.entities.bert.LitCoin2JCas;
 import readbiomed.litcoin.reader.LitCoinReader;
 
 public class EntityTrainingData {
@@ -20,7 +20,7 @@ public class EntityTrainingData {
 		String inputFileName = "/Users/ajimeno/Downloads/LitCoin Dataset/abstracts_train.csv";
 
 		AggregateBuilder builder = new AggregateBuilder();
-		builder.add(Litcoin2JCas.getInputFileDescription("/Users/ajimeno/Downloads/LitCoin Dataset/entities_train.csv"));
+		builder.add(LitCoin2JCas.getInputFileDescription("/Users/ajimeno/Downloads/LitCoin Dataset/entities_train.csv"));
 		builder.add(JCas2Brat.getOutputFolderDescription("/Users/ajimeno/Documents/UoM/LitCoin/training/entities"));
 		
 		AnalysisEngine ae = AnalysisEngineFactory.createEngine(builder.createAggregateDescription());

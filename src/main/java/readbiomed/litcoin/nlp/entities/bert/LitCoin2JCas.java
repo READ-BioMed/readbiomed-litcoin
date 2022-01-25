@@ -18,7 +18,7 @@ import org.apache.uima.resource.ResourceInitializationException;
 import org.cleartk.ne.type.NamedEntityMention;
 import org.cleartk.util.ViewUriUtil;
 
-public class Litcoin2JCas extends JCasAnnotator_ImplBase {
+public class LitCoin2JCas extends JCasAnnotator_ImplBase {
 
 	public static final String PARAM_INPUT_FILE_NAME = "inputFileName";
 
@@ -75,6 +75,6 @@ public class Litcoin2JCas extends JCasAnnotator_ImplBase {
 
 	public static AnalysisEngineDescription getInputFileDescription(String inputFileName)
 			throws ResourceInitializationException {
-		return AnalysisEngineFactory.createEngineDescription(Litcoin2JCas.class, PARAM_INPUT_FILE_NAME, inputFileName);
+		return AnalysisEngineFactory.createEngineDescription(LitCoin2JCas.class, PARAM_INPUT_FILE_NAME, inputFileName);
 	}
 }

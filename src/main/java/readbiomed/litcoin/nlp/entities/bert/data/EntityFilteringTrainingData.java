@@ -18,7 +18,7 @@ import org.cleartk.opennlp.tools.SentenceAnnotator;
 import org.cleartk.token.type.Sentence;
 import org.cleartk.util.ViewUriUtil;
 
-import readbiomed.litcoin.nlp.entities.bert.Litcoin2JCas;
+import readbiomed.litcoin.nlp.entities.bert.LitCoin2JCas;
 import readbiomed.litcoin.reader.LitCoinReader;
 
 public class EntityFilteringTrainingData {
@@ -28,11 +28,11 @@ public class EntityFilteringTrainingData {
 		String outputFileName = "/Users/ajimeno/Documents/UoM/LitCoin/output/filterTrain.pipe";
 
 		AnalysisEngine ae_gt = AnalysisEngineFactory.createEngine(
-				Litcoin2JCas.getInputFileDescription("/Users/ajimeno/Downloads/LitCoin Dataset/entities_train.csv"));
+				LitCoin2JCas.getInputFileDescription("/Users/ajimeno/Downloads/LitCoin Dataset/entities_train.csv"));
 
 		AggregateBuilder builder = new AggregateBuilder();
 		builder.add(SentenceAnnotator.getDescription());
-		builder.add(Litcoin2JCas.getInputFileDescription(
+		builder.add(LitCoin2JCas.getInputFileDescription(
 				"/Users/ajimeno/Documents/UoM/LitCoin/output/submission_readbiomed_entities.csv"));
 
 		AnalysisEngine ae_ann = AnalysisEngineFactory.createEngine(builder.createAggregateDescription());

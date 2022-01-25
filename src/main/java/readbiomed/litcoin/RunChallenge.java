@@ -14,6 +14,7 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
 import readbiomed.litcoin.nlp.AnnotationPipelineFactory;
 import readbiomed.litcoin.reader.LitCoinReader;
+import readbiomed.litcoin.nlp.entities.genes.GeneAnnotator;
 
 @Command(name = "RunChallenge", mixinStandardHelpOptions = true, version = "RunChallenge 0.1", description = "Run LitCoin challenge pipeline.")
 public class RunChallenge implements Callable<Integer> {
@@ -45,6 +46,9 @@ public class RunChallenge implements Callable<Integer> {
 		 * ae.process(jCas);
 		 */
 
+		System.out.println(GeneAnnotator.class.getResource("GeneAnnotator.class").getPath());
+		
+		
 		CollectionReaderDescription litCoinReader = LitCoinReader.getDescriptionFromFiles(inputFileName);
 		AggregateBuilder pipeline = AnnotationPipelineFactory.getPipeline(dictFileName, outputFolderName);
 
