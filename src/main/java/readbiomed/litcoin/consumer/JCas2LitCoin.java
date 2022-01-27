@@ -14,6 +14,7 @@ import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.fit.factory.AnalysisEngineFactory;
 import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
+import org.apache.uima.jcas.tcas.Annotation;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.cleartk.ne.type.NamedEntityMention;
 import org.cleartk.util.ViewUriUtil;
@@ -50,6 +51,13 @@ public class JCas2LitCoin extends JCasAnnotator_ImplBase {
 	public void process(JCas jCas) throws AnalysisEngineProcessException {
 		int nid = 0;
 		String abstractId = ViewUriUtil.getURI(jCas).toString();
+		
+		// Debugging code
+		for (Annotation a : JCasUtil.select(jCas,  Annotation.class)) {
+			System.out.println(a);
+			System.out.println(a.getCoveredText());
+			System.out.println("----");
+		}
 
 		// Go over the entities
 		for (NamedEntityMention ne : JCasUtil.select(jCas, NamedEntityMention.class)) {
