@@ -1,5 +1,6 @@
 package readbiomed.litcoin.nlp.entities.pubtator;
 
+/*
 import java.io.*;
 import java.util.*;
 import java.util.concurrent.Callable;
@@ -241,4 +242,4 @@ public class DictionaryBuilder implements Callable<Integer> {
 		int exitCode = new CommandLine(new DictionaryBuilder()).execute(args);
 		System.exit(exitCode);
 	}
-}
+}*/
