@@ -19,11 +19,11 @@ import readbiomed.litcoin.nlp.entities.genes.GeneAnnotator;
 @Command(name = "RunChallenge", mixinStandardHelpOptions = true, version = "RunChallenge 0.1", description = "Run LitCoin challenge pipeline.")
 public class RunChallenge implements Callable<Integer> {
 
-	@Parameters(index = "0", description = "Dictionary file name.")
+	@Parameters(index = "0", description = "Dictionary file name.", defaultValue = "file:/Users/sonya/Documents/litcoin challenge/newPubtatorDict.xml")
 	private String dictFileName;
-	@Parameters(index = "1", description = "Input file name.")
+	@Parameters(index = "1", description = "Input file name.", defaultValue = "/Users/sonya/Documents/litcoin challenge/LitCoin Dataset/abstracts_train.csv")
 	private String inputFileName;
-	@Parameters(index = "2", description = "Output folder name.")
+	@Parameters(index = "2", description = "Output folder name.", defaultValue = "/Users/sonya/Documents/litcoin challenge/results")
 	private String outputFolderName;
 
 	public static void main(String[] argc) throws IOException, SAXException, UIMAException {
@@ -46,9 +46,6 @@ public class RunChallenge implements Callable<Integer> {
 		 * ae.process(jCas);
 		 */
 
-		System.out.println(GeneAnnotator.class.getResource("GeneAnnotator.class").getPath());
-		
-		
 		CollectionReaderDescription litCoinReader = LitCoinReader.getDescriptionFromFiles(inputFileName);
 		AggregateBuilder pipeline = AnnotationPipelineFactory.getPipeline(dictFileName, outputFolderName);
 

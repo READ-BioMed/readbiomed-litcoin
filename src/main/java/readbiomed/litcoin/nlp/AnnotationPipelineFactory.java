@@ -31,21 +31,18 @@ public class AnnotationPipelineFactory {
 		builder.add(NCBITaxonomyAnnotator.getDescription());
 
 		builder.add(GeneAnnotator.getDescription());
-		
-		builder.add(DiseaseAnnotator.getDescription());
-		
-		builder.add(CellLineAnnotator.getDescription());
-		
-		builder.add(ChemicalAnnotator.getDescription());
-		
-		builder.add(WDDMutationRegExAnnotator.getDescription());
-		
-		builder.add(MutationFiltering.getDescription());
-		
-		builder.add(FilterRepeatedEntity.getDescription());
-		
-		// Relation annotation
 
+		builder.add(DiseaseAnnotator.getDescription());
+
+		builder.add(CellLineAnnotator.getDescription());
+
+		builder.add(ChemicalAnnotator.getDescription());
+
+		builder.add(WDDMutationRegExAnnotator.getDescription());
+
+		builder.add(MutationFiltering.getDescription());
+
+        builder.add(FilterRepeatedEntity.getDescription());
 
 		// Consumer to generate LitCoin output
 		builder.add(JCas2LitCoin.getOutputFolderDescription(outputFolderName));
